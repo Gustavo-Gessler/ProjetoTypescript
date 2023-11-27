@@ -1,0 +1,90 @@
+/// <reference path="product.ts" />
+/// <reference path="shopping-cart.ts" />
+
+interface ShoppingCartItem {
+  product: Product;
+  quantity: number;
+}
+
+window.onload = () => {
+  const productsContainer = document.getElementById('products-container');
+  const cartContainer = document.getElementById('cart-container');
+
+  const products: Product[] = [
+    new Product('Maçã', 2.5),
+    new Product('Pão', 1.0),
+    new Product('Leite', 3.0),
+    new Product('Chocolate', 5.5),
+  ];
+
+  const cart = new ShoppingCart();
+
+  const renderProduct = (product: Product) => {
+    const productDiv = document.createElement('div');
+    productDiv.className = 'product';
+    productDiv.innerHTML = `<p>${product.name} - $${product.price}</p>`;
+
+    // Criar o botão e adicionar o evento de clique
+    const addButton = document.createElement('button');
+    addButton.className = 'button';
+    addButton.textContent = 'Add to Cart';
+    addButton.addEventListener('click', () => window['addToCart'](product.name, product.price, 1));
+
+    // Adicionar o botão ao elemento pai (productDiv)
+    productDiv.appendChild(addButton);
+
+    // Adicionar o produto ao contêiner de produtos
+    productsContainer?.appendChild(productDiv);
+  };
+
+  const renderCart = () => {
+    // Limpar o container do carrinho
+    cartContainer.innerHTML = '';
+
+    // Se o carrinho estiver vazio, esconder o container
+    if (cart.getItems().length === 0) {
+      cartContainer.style.display = 'none';
+      return;
+    }
+
+    // Mostrar o container do carrinho
+    cartContainer.style.display = 'block';
+
+    // Agrupar os itens do carrinho pelo nome do produto
+    const groupedItems: Record<string, ShoppingCartItem> = {};
+
+    // Agrupar os itens do carrinho
+    cart.getItems().forEach((item) => {
+      if (!groupedItems[item.product.name]) {
+        groupedItems[item.product.name] = item;
+      } else {
+        groupedItems[item.product.name].quantity += item.quantity;
+      }
+    });
+
+    // Renderizar cada item do carrinho
+    Object.values(groupedItems).forEach((item) => {
+      const cartItemDiv = document.createElement('div');
+      cartItemDiv.className = 'cart-item';
+      cartItemDiv.innerHTML = `<p>${item.product.name} - $${item.product.price} (${item.quantity}X)</p>`;
+      cartContainer?.appendChild(cartItemDiv);
+    });
+
+    // Adicionar o total do carrinho
+    const totalDiv = document.createElement('div');
+    totalDiv.className = 'cart-total';
+    totalDiv.innerHTML = `<p>Cart Total: $${cart.getTotal()}</p>`;
+    cartContainer?.appendChild(totalDiv);
+  };
+
+  window['addToCart'] = (name: string, price: number, quantity: number) => {
+    const product = new Product(name, price);
+    cart.addItem(product, quantity);
+    renderCart();
+  };
+
+  // Renderizar produtos iniciais
+  products.forEach((product) => {
+    renderProduct(product);
+  });
+};

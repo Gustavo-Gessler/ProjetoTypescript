@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Sistema de Compras</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Compras</h1>
+  </header>
+  <h2>
+    Abaixo você terá um sistema de compras de produtos de mercado como itens comestíveis para fazer uma simulação de compra!
+  </h2>
+    <div>
+      <label for="depositInput">Depósito:</label>
+      <input type="number" id="depositInput" placeholder="Insira o valor do depósito">
+      <button id="depositButton">Confirmar Depósito</button>
+    </div>
+  <p id="userBalanceDisplay"></p>
+
+  <div id="first_container">
+    <div class="flex-container">
+      <div id="products-container" class="container"><!-- Conteúdo do sistema de compras aqui --></div>
+      <div id="cart-wrapper" class="container">
+        <h3>Itens do Carrinho:</h3>
+        <div id="cart-container"></div>
+        <div class="cart-total text-center">
+          <button id="checkoutButton"  style="display: none;">Finalizar Compra</button>
+        </div>
+      </div>
+  <script src="app.js"></script>
+</body>
+</html>

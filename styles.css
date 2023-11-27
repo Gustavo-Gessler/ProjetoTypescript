@@ -1,0 +1,171 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #00fff2c7;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centralizar o conteúdo verticalmente */
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* Espaço entre os elementos */
+}
+
+#cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adicionar um espaço entre o conteúdo e o carrinho */
+}
+
+h3 {
+  color: #fff;
+  text-align: center;
+  margin: 20px 0; /* Ajustar a margem para cima e para baixo */
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: #1c1d20c7;
+}
+
+#first_container {
+  margin: 30px auto;
+  height: 700px;
+  width: 650px;
+  background-color: #000;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px #000;
+  display: block;
+}
+
+.container {
+  max-width: 300px; /* Reduzindo a largura para dar espaço ao carrinho */
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0; /* Adicionar uma margem inferior */
+}
+
+.product {
+  border: 3px solid #000;
+  margin: 20px 5px; /* Adicionar uma margem inferior */
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #b3ff00c7;
+  height: 70px;
+  width: 100%; /* Ocupar toda a largura disponível */
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.cart-item {
+  border: 3px solid #000;
+  margin: 20px 5px; /* Adicionar uma margem inferior */
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px; /* Ocupar toda a largura disponível */
+  background-color: #1d3d81;
+  text-align: center; /* Centralizar o texto */
+}
+
+.button {
+  background-color: #811d63;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px; /* Ajustar a margem */
+  cursor: pointer;
+  transition: 0.5s;
+  width: 120px;
+  height: 70px;
+}
+
+#checkoutButton{
+  border: 3px solid #000;
+  background-color: #c74a20c7;
+  width: 150px;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 10px;
+  height: 60px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+#checkoutButton:hover{
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.button:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.cart {
+  display: none;
+}
+
+.cart-total {
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+label{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#depositButton{
+  width: 150px;
+  height: 50px;
+  background-color: #188866c7;
+  border: 3px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+
+#depositButton:hover{
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+#depositInput{
+  border: 3px solid #000;
+  background-color: #fff;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  height: 30px;
+  width: 150px;
+}
